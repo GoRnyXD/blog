@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>{{profile.user.username}}</title>
+    <link type="text/css" href="{% static 'blog/css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="main">
+        {% if profile.image %}
+        <img src="{{profile.image.url}}" width="250" height="250" align="left">
+        {% else %}
+        <img src="{% static 'blog/images/default.png' %}" width="250" height="250" align="left">
+        {% endif %}
+        <div class="text-pad">
+        <h1 style='
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-family: sans-serif;'>
+            {{profile.user.username}}
+        </h1>
+        <h3>{{profile.description}}
+            <div class="other-des">
+            <h3>Номер: {{profile.number}}
+            <h3>Страна: {{profile.country}}
+            <h3>Город: {{profile.city}}
+            <h3>Язык: {{profile.language}} 
+            </div>
+        </div>
+    </div>
+</body>
+<html>
